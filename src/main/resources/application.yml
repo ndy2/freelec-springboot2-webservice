@@ -17,9 +17,6 @@ spring:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 10
-  thymeleaf:
-    cache: false
-    prefix: classpath:/templates/
   devtools:
     livereload:
       enabled: true
