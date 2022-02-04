@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    include: oauth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: 1234
@@ -10,13 +12,14 @@ spring:
     generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 10
   thymeleaf:
     cache: false
+    prefix: classpath:/templates/
   devtools:
     livereload:
       enabled: true
