@@ -1,6 +1,4 @@
 spring:
-  profile:
-    include: oauth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: 1234
