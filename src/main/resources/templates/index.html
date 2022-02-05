@@ -13,6 +13,7 @@
                    class = "btn btn-primary"> 글 등록</a>
 
                 <a sec:authorize="isAnonymous()" th:href="@{oauth2/authorization/google}" class="btn btn-success active" role ="button">구글 로그인 </a>
+                <a sec:authorize="isAnonymous()" th:href="@{oauth2/authorization/naver}" class="btn btn-secondary active" role ="button">네이버 로그인 </a>
                 <a sec:authorize="isAuthenticated()" class="btn btn-info inactive" role="button" th:text="${user.name}"> </a>
                 <a sec:authorize="isAuthenticated()" th:href="@{logout}" class="btn btn-info active" role="button">로그아웃 </a>
 
@@ -31,12 +32,12 @@
                 <th>최종수정일</th>
             </tr>
             </thead>
-            <tbody id = "tbody" th:each="posts:${posts}">
+            <tbody id = "tbody" th:each="post:${posts}">
             <tr>
-                <td th:text="${posts.id}"></td>
-                <td><a th:href="@{|/posts/update/${posts.id}|}" th:text="${posts.title}"></a></td>
-                <td th:text="${posts.author}"></td>
-                <td th:text="${posts.modifiedDate}"></td>
+                <td th:text="${post.id}"></td>
+                <td><a th:href="@{|/posts/update/${post.id}|}" th:text="${post.title}"></a></td>
+                <td th:text="${post.author}"></td>
+                <td th:text="${post.modifiedDate}"></td>
             </tr>
 
             </tbody>

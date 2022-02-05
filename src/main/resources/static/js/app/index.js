@@ -20,8 +20,13 @@ var main = {
             content: $('#content').val()
         };
 
+        var token =  $('input[name="_csrf"]').attr('value');
+
         $.ajax({
             type: 'POST',
+            headers: {
+                'X-CSRF-Token': token
+            },
             url: '/api/v1/posts',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
@@ -40,9 +45,13 @@ var main = {
         };
 
         var id = $('#id').val();
+        var token =  $('input[name="_csrf"]').attr('value');
 
         $.ajax({
             type: 'PUT',
+            headers: {
+                'X-CSRF-Token': token
+            },
             url: '/api/v1/posts/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
@@ -54,11 +63,16 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
+
     delete : function () {
         var id = $('#id').val();
+        var token =  $('input[name="_csrf"]').attr('value');
 
         $.ajax({
             type: 'DELETE',
+            headers: {
+                'X-CSRF-Token': token
+            },
             url: '/api/v1/posts/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'

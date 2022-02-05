@@ -1,9 +1,11 @@
 package com.jojoldu.book.springboot.domain.posts;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,10 +13,13 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+@WithMockUser(roles = "USER")
 class PostRepositoryTest {
 
     @Autowired
     PostsRepository postsRepository;
+
+
 
     @AfterEach
     void cleanUp(){

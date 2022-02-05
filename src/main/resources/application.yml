@@ -17,6 +17,16 @@ spring:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 10
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
   devtools:
     livereload:
       enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
